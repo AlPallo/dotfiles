@@ -11,7 +11,6 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.scrolloff = 999
-vim.g.netrw_liststyle = 3
 
 
 vim.api.nvim_create_autocmd("FileType", {

@@ -29,5 +29,37 @@ return require('packer').startup(function(use)
 	  run = ':TSUpdate'
   }
   use( "mbbill/undotree" )
+  use( "mason-org/mason.nvim" )
+  use( "mason-org/mason-lspconfig.nvim" )
+  use( "neovim/nvim-lspconfig" )
+  use({
+  "saghen/blink.cmp",
+  requires = {
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/nvim-cmp",-- optional, for snippet completions
+  },
+  run = "cargo build --release", -- optional: build native fuzzy matcher from source
+  config = function()
+    require("blink.cmp").setup({
+      keymap = { preset = "default" },
+      appearance = {
+        -- nerd_font_variant = "mono",
+      },
+      completion = {
+        documentation = {
+          auto_show = false
+          ,
+        },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      fuzzy = {
+        implementation = "prefer_rust_with_warning", -- try native, fallback with warning
+      },
+    })
+  end,
+})
 
 end)
+
