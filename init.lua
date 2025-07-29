@@ -1,2 +1,2 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+require("ap-dev")
+require("vim.ui.clipboard.osc52").copy({ "hello world from remote" })
