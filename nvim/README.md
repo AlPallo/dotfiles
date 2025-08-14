@@ -12,6 +12,7 @@ cd ~/.local/share/nvim/site/pack/packer/start/blink.cmp
 cargo build --release
 `
 install ripgrep for fuzzy finder
+install unzip for (Mason dependency)
 
 
 Following

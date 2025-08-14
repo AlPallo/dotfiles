@@ -30,20 +30,28 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
 })
 
-local ok, mason_null_ls = pcall(require, "mason-null-ls")
-if ok then
-    mason_null_ls.setup({
-        ensure_installed = formatters_and_linters,
-        automatic_installation = true,
-    })
+local function is_installed(package)
+    local registry_ok, registry = pcall(require, "mason-registry")
+    if not registry_ok then return false end
+    if not registry.is_installed then return false end
+    local pkg = registry.get_package(package)
+    return pkg:is_installed()
 end
 
-local ok_dap, mason_dap = pcall(require, "mason-nvim-dap")
-if ok_dap then
-    mason_dap.setup({
-        ensure_installed = debug_adapters,
-        automatic_installation = true,
-    })
+for _, tool in ipairs(formatters_and_linters) do
+    if not is_installed(tool) then
+        vim.schedule(function()
+            vim.cmd("MasonInstall " .. tool)
+        end)
+    end
+end
+
+for _, adapter in ipairs(debug_adapters) do
+    if not is_installed(adapter) then
+        vim.schedule(function()
+            vim.cmd("MasonInstall " .. adapter)
+        end)
+    end
 end
 
 local lspconfig = require("lspconfig")
@@ -73,3 +81,4 @@ for _, name in ipairs(lsp_servers) do
     })
     vim.lsp.enable(name)
 end
+
