@@ -14,11 +14,11 @@ vim.o.scrolloff = 999
 
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "yaml,yml,sh,bashrc",
-  callback = function()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.expandtab = true
-  end,
+    pattern = "yaml,yml,sh,bashrc",
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+    end,
 })
