@@ -75,7 +75,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["blink.cmp"] = {
-    config = { "\27LJ\2\ní\2\0\0\5\0\17\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\0025\3\f\0005\4\v\0=\4\r\3=\3\14\0025\3\15\0=\3\16\2B\0\2\1K\0\1\0\nfuzzy\1\0\1\19implementation\29prefer_rust_with_warning\fsources\fdefault\1\0\1\fdefault\0\1\5\0\0\blsp\tpath\rsnippets\vbuffer\15completion\18documentation\1\0\1\18documentation\0\1\0\1\14auto_show\1\15appearance\vkeymap\1\0\5\nfuzzy\0\vkeymap\0\fsources\0\15completion\0\15appearance\0\1\0\1\vpreset\fdefault\nsetup\14blink.cmp\frequire\0" },
+    config = { "\27LJ\2\ní\2\0\0\5\0\17\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\0025\3\f\0005\4\v\0=\4\r\3=\3\14\0025\3\15\0=\3\16\2B\0\2\1K\0\1\0\nfuzzy\1\0\1\19implementation\29prefer_rust_with_warning\fsources\fdefault\1\0\1\fdefault\0\1\5\0\0\blsp\tpath\rsnippets\vbuffer\15completion\18documentation\1\0\1\18documentation\0\1\0\1\14auto_show\1\15appearance\vkeymap\1\0\5\15completion\0\15appearance\0\nfuzzy\0\fsources\0\vkeymap\0\1\0\1\vpreset\fdefault\nsetup\14blink.cmp\frequire\0" },
     loaded = true,
     path = "/home/alex/.local/share/nvim/site/pack/packer/start/blink.cmp",
     url = "https://github.com/saghen/blink.cmp"
@@ -139,14 +139,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: blink.cmp
+time([[Config for blink.cmp]], true)
+try_loadstring("\27LJ\2\ní\2\0\0\5\0\17\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\0025\3\f\0005\4\v\0=\4\r\3=\3\14\0025\3\15\0=\3\16\2B\0\2\1K\0\1\0\nfuzzy\1\0\1\19implementation\29prefer_rust_with_warning\fsources\fdefault\1\0\1\fdefault\0\1\5\0\0\blsp\tpath\rsnippets\vbuffer\15completion\18documentation\1\0\1\18documentation\0\1\0\1\14auto_show\1\15appearance\vkeymap\1\0\5\15completion\0\15appearance\0\nfuzzy\0\fsources\0\vkeymap\0\1\0\1\vpreset\fdefault\nsetup\14blink.cmp\frequire\0", "config", "blink.cmp")
+time([[Config for blink.cmp]], false)
 -- Config for: one-dark
 time([[Config for one-dark]], true)
 try_loadstring("\27LJ\2\n•\1\0\0\4\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\6\0009\0\a\0'\2\b\0B\0\2\1K\0\1\0\24colorscheme onedark\bcmd\bvim\foptions\1\0\1\foptions\0\1\0\1\17transparency\2\nsetup\15onedarkpro\frequire\0", "config", "one-dark")
 time([[Config for one-dark]], false)
--- Config for: blink.cmp
-time([[Config for blink.cmp]], true)
-try_loadstring("\27LJ\2\ní\2\0\0\5\0\17\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0024\3\0\0=\3\6\0025\3\b\0005\4\a\0=\4\t\3=\3\n\0025\3\f\0005\4\v\0=\4\r\3=\3\14\0025\3\15\0=\3\16\2B\0\2\1K\0\1\0\nfuzzy\1\0\1\19implementation\29prefer_rust_with_warning\fsources\fdefault\1\0\1\fdefault\0\1\5\0\0\blsp\tpath\rsnippets\vbuffer\15completion\18documentation\1\0\1\18documentation\0\1\0\1\14auto_show\1\15appearance\vkeymap\1\0\5\nfuzzy\0\vkeymap\0\fsources\0\15completion\0\15appearance\0\1\0\1\vpreset\fdefault\nsetup\14blink.cmp\frequire\0", "config", "blink.cmp")
-time([[Config for blink.cmp]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

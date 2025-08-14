@@ -7,3 +7,4 @@ foo.*
 *.log
 data
 doctl/*
+nvim/plugin/packer_compiled.lua

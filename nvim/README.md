@@ -1,4 +1,18 @@
 # neovim-config
+install packer:
+`
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+`
+after clone run `:PackerSync`
+install rust nightly
+build blink.cmp:
+`
+cd ~/.local/share/nvim/site/pack/packer/start/blink.cmp
+cargo build --release
+`
+install ripgrep for fuzzy finder
+
 
 Following
 primeagen 0-100 config tutorial
