@@ -68,6 +68,19 @@ local on_attach = function(client, bufnr)
     buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 end
 
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.shfmt,
+    },
+    on_attach = on_attach,
+})
+
+
 -- 5. Setup all LSP servers
 -- for _, server in ipairs(lsp_servers) do
 --     lspconfig[server].setup({

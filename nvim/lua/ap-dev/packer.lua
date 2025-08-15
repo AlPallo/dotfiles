@@ -32,6 +32,12 @@ return require('packer').startup(function(use)
     use("mason-org/mason.nvim")
     use("mason-org/mason-lspconfig.nvim")
     use("neovim/nvim-lspconfig")
+
+    use({
+        "nvimtools/none-ls.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    })
+
     use({
         "saghen/blink.cmp",
         requires = {
