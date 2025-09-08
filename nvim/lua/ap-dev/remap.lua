@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open Oil" })
 vim.opt.clipboard = "unnamedplus"
+vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>c", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+vim.opt.guicursor:append("a:-blinkwait175-blinkoff150-blinkon175")
 vim.g.clipboard = {
     name = "OSC 52",
     copy = {

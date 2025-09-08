@@ -10,14 +10,23 @@ require("telescope").setup({
              --glob '!**/.*' \
              --glob '!**/venv/*' ;
           [ -f .env ] && echo .env
-          [ -f .gitignore ] && echo .gitignore
+          [ -f .gitignore ] && echo .gitignore ;
+          # List directories
+          fd --type d --hidden --exclude .git
         ]]
             },
         },
     },
 })
-vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files and directories' })
 vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Telescope find git files' })
 vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
+
+vim.keymap.set("n", "<leader>pd", function()
+  builtin.find_files({
+    prompt_title = "Find Directories",
+    find_command = { "fd", "--type", "d", "--hidden", "--exclude", ".git" }
+  })
+end, { desc = "Find directories" })
