@@ -14,6 +14,7 @@ cargo build --release
 install ripgrep for fuzzy finder
 install unzip for (Mason dependency)
 
+new stuff
 
 Following
 primeagen 0-100 config tutorial

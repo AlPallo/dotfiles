@@ -1,5 +1,4 @@
 require("mason").setup()
-
 local lsp_servers = {
 	"lua_ls",
 	"pyright",
