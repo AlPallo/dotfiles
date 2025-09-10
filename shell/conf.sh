@@ -40,3 +40,28 @@ nvim() {
 export MANPAGER="nvim +Man!"
 
 alias python="python3"
+
+venv() {
+    # deactivate if active
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        deactivate 2>/dev/null || true
+    fi
+
+    # start from current directory
+    dir="$PWD"
+    while [[ "$dir" != "/" ]]; do
+        if [[ -f "$dir/venv/bin/activate" ]]; then
+            # activate venv
+            . "$dir/venv/bin/activate"
+
+            # if requirements.txt exists, install quietly
+            if [[ -f "$dir/requirements.txt" ]]; then
+                pip install -q --disable-pip-version-check -r "$dir/requirements.txt" >/dev/null 2>&1
+            fi
+            return
+        fi
+        dir=$(dirname "$dir")
+    done
+
+    echo "No venv"
+}

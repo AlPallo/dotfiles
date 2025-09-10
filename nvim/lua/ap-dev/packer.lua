@@ -49,6 +49,11 @@ return require("packer").startup(function(use)
 		requires = { "stevearc/oil.nvim" },
 	})
 	use("nvim-tree/nvim-web-devicons")
+    use("MunifTanjim/nui.nvim")
+	use({
+		"folke/noice.nvim",
+		requires = { "MunifTanjim/nui.nvim" },
+	})
 
 	use({
 		"saghen/blink.cmp",
@@ -61,7 +66,7 @@ return require("packer").startup(function(use)
 			require("blink.cmp").setup({
 				keymap = { preset = "default" },
 				appearance = {
-					-- nerd_font_variant = "mono",
+					nerd_font_variant = "mono",
 				},
 				completion = {
 					documentation = {
@@ -76,6 +81,10 @@ return require("packer").startup(function(use)
 				},
 				signature = {
 					enabled = true,
+				},
+				cmdline = {
+					keymap = { preset = "inherit" },
+					completion = { menu = { auto_show = true } },
 				},
 			})
 		end,
