@@ -51,3 +51,6 @@ venv() {
 
 	echo "No venv"
 }
+
+export EDITOR=$(which nvim)
+export VISUAL=$(which nvim)

@@ -13,18 +13,20 @@ mkdir -p "$HOME/.config"
 
 # Function to create or update symlinks
 link_config() {
-    local src="$1"
-    local dest="$2"
+	local src="$1"
+	local dest="$2"
+	echo "LINK SOURCE $src"
+	echo "LINK DESTINATION $dest"
 
-    if [ -L "$dest" ]; then
-        echo "♻️  Updating existing symlink $dest → $src"
-        ln -sf "$src" "$dest"
-    elif [ -e "$dest" ]; then
-        echo "⚠️  $dest exists and is not a symlink, skipping"
-    else
-        echo "➡️  Creating symlink $dest → $src"
-        ln -s "$src" "$dest"
-    fi
+	if [ -L "$dest" ]; then
+		echo "♻️  Updating existing symlink $dest → $src"
+		ln -sfn "$src" "$dest"
+	elif [ -e "$dest" ]; then
+		echo "⚠️  $dest exists and is not a symlink, skipping"
+	else
+		echo "➡️  Creating symlink $dest → $src"
+		ln -sfn "$src" "$dest"
+	fi
 }
 
 link_config "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
