@@ -13,13 +13,15 @@ export GIT_PS1_SHOWCOLORHINTS=1 # colorize branch name
 
 PS1='\[\033[01;32m\]\u\[\033[01;37m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 
+vi() { nvim "$@"; }
+vim() { nvim "$@"; }
 nvim() {
 	if [ $# -eq 0 ]; then
-		nvim .
+		command nvim .
 	elif [ -d "$1" ]; then
-		cd "$1" && nvim .
+		cd "$1" && command nvim .
 	else
-		nvim "$@"
+		command nvim "$@"
 	fi
 }
 
