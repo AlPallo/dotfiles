@@ -7,9 +7,9 @@ local lsp_servers = {
 	"dockerls",
 	"yamlls",
 	"docker_compose_language_service",
-	"spectral",
 	"denols",
 	"ansiblels",
+    "nil_ls"
 }
 
 local formatters_and_linters = {
@@ -19,6 +19,7 @@ local formatters_and_linters = {
 	"stylua",
 	"shfmt",
 	"prettier",
+    "nixfmt"
 }
 
 local debug_adapters = {

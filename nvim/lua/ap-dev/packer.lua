@@ -59,7 +59,7 @@ return require("packer").startup(function(use)
 		"saghen/blink.cmp",
 		requires = {
 			"rafamadriz/friendly-snippets",
-			"hrsh7th/nvim-cmp", -- optional, for snippet completions
+			"hrsh7th/nvim-cmp",
 		},
 		run = "cargo build --release", -- optional: build native fuzzy matcher from source
 		config = function()
