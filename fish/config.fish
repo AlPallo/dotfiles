@@ -10,4 +10,5 @@ set -U __fish_git_prompt_color_conflictedstate red
 set -U __fish_git_prompt_color_branch magenta
 set -U __fish_git_prompt_char_untrackedfiles "…"
 set -U fish_color_cwd white
+set -gx EDITOR nvim
 end

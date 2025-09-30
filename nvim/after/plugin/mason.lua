@@ -19,7 +19,7 @@ local formatters_and_linters = {
 	"stylua",
 	"shfmt",
 	"prettier",
-    "nixfmt"
+  "nixfmt"
 }
 
 local debug_adapters = {
@@ -86,20 +86,14 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.shfmt,
+		null_ls.builtins.formatting.nixfmt,
 	},
 	on_attach = on_attach,
 })
 
--- 5. Setup all LSP servers
--- for _, server in ipairs(lsp_servers) do
---     lspconfig[server].setup({
---         on_attach = on_attach,
---     })
--- end
-
 for _, name in ipairs(lsp_servers) do
-	vim.lsp.config(name, {
-		on_attach = on_attach,
-	})
-	vim.lsp.enable(name)
+        lspconfig[name].setup({
+            on_attach = on_attach,
+        })
+    vim.lsp.enable(name)
 end
