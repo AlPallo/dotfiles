@@ -1,5 +1,14 @@
 local builtin = require("telescope.builtin")
 require("telescope").setup({
+	defaults = {
+		layout_strategy = "vertical",
+		layout_config = {
+			height = 0.95, -- occupy most of the screen vertically
+			width = 0.8, -- keep some margins on the sides
+			preview_cutoff = 1, -- always show preview (never hide due to width)
+			preview_height = 0.5, -- preview takes up half of the window height
+		},
+	},
 	pickers = {
 		find_files = {
 			hidden = false, -- default is fine
