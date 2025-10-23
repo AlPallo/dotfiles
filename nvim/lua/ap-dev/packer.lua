@@ -12,18 +12,21 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	--    use {
-	--        "olimorris/onedarkpro.nvim",
-	--        as = "one-dark",
-	--        config = function()
-	--            require("onedarkpro").setup({
-	--                options = {
-	--                    transparency = true,
-	--                },
-	--            })
-	--            vim.cmd("colorscheme onedark")
-	--        end,
-	--    }
+	use({
+		"olimorris/onedarkpro.nvim",
+		as = "one-dark",
+		config = function()
+			require("onedarkpro").setup({
+				options = {
+					transparency = true,
+				},
+			})
+			vim.cmd("colorscheme onedark")
+		end,
+	})
+
+	use("shaunsingh/nord.nvim")
+	use("rmehri01/onenord.nvim")
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -49,7 +52,7 @@ return require("packer").startup(function(use)
 		requires = { "stevearc/oil.nvim" },
 	})
 	use("nvim-tree/nvim-web-devicons")
-    use("MunifTanjim/nui.nvim")
+	use("MunifTanjim/nui.nvim")
 	use({
 		"folke/noice.nvim",
 		requires = { "MunifTanjim/nui.nvim" },
