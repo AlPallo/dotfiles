@@ -38,6 +38,7 @@ end)
 vim.api.nvim_create_autocmd("User", {
 	pattern = "TelescopePreviewerLoaded",
 	callback = function()
+    vim.wo.wrap = true
 		if vim.bo.filetype ~= "help" then
 			vim.wo.number = true
 		end

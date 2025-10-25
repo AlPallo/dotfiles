@@ -18,3 +18,4 @@ vim.g.clipboard = {
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
 vim.keymap.set("n", "/", "/\\v", { noremap = true })
 vim.keymap.set("n", "?", "?\\v", { noremap = true })
+vim.keymap.set("n", "<leader>v", "<C-v>", { desc = "Enter visual block mode" })
