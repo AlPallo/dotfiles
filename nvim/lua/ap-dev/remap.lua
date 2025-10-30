@@ -20,14 +20,14 @@ vim.keymap.set("n", "/", "/\\v", { noremap = true })
 vim.keymap.set("n", "?", "?\\v", { noremap = true })
 vim.keymap.set("n", "<leader>v", "<C-v>", { desc = "Enter visual block mode" })
 vim.keymap.set(
-  "n",
-  "<leader>fiw",
-  "viwy:let @/='\\V'.escape(@0, '\\')<CR>n",
-  { noremap = true, silent = true, desc = "Find inner word under cursor" }
-)
-vim.keymap.set(
-  "x",
+  "v",
   "f",
   "y:let @/='\\V'.escape(@0, '\\')<CR>n",
   { noremap = true, silent = true, desc = "Find selected text" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  ":let @/='\\V'.escape(@\", '\\')<CR>n",
+  { noremap = true, silent = true, desc = "Search for last yanked text" }
 )
