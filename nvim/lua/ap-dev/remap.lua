@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open Oil" })
 vim.opt.clipboard = "unnamedplus"
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>c", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 vim.opt.guicursor:append("a:-blinkwait175-blinkoff150-blinkon175")
 vim.g.clipboard = {
   name = "OSC 52",
@@ -31,3 +30,6 @@ vim.keymap.set(
   ":let @/='\\V'.escape(@\", '\\')<CR>n",
   { noremap = true, silent = true, desc = "Search for last yanked text" }
 )
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR><Esc>", { noremap = true, silent = true })
+vim.keymap.set("n", "n", ":set hlsearch<CR>n", { noremap = true, silent = true })
+vim.keymap.set("n", "N", ":set hlsearch<CR>N", { noremap = true, silent = true })
