@@ -3,6 +3,14 @@ vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>", { desc = "Open Oil" })
 vim.opt.clipboard = "unnamedplus"
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
 vim.opt.guicursor:append("a:-blinkwait175-blinkoff150-blinkon175")
+
+local function paste()
+  return {
+    vim.fn.split(vim.fn.getreg(""), "\n"),
+    vim.fn.getregtype(""),
+  }
+end
+
 vim.g.clipboard = {
   name = "OSC 52",
   copy = {
@@ -10,8 +18,8 @@ vim.g.clipboard = {
     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
   },
   paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    ["+"] = paste,
+    ["*"] = paste,
   },
 }
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
