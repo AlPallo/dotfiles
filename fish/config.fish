@@ -13,4 +13,11 @@ set -U fish_color_cwd white
 set -gx EDITOR nvim
 set -x MANPAGER "nvim +Man!"
 set -gx PGPASSFILE "/home/alex/.pgpass"
+    if not set -q TMUX
+        if tmux has-session 2>/dev/null
+            tmux attach
+        else
+            tmux new -s main
+        end
+    end
 end
