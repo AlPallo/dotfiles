@@ -11,6 +11,7 @@ set -U __fish_git_prompt_color_branch magenta
 set -U __fish_git_prompt_char_untrackedfiles "…"
 set -U fish_color_cwd white
 set -gx EDITOR nvim
+set -U fish_greeting ""
 set -x MANPAGER "nvim +Man!"
 set -gx PGPASSFILE "/home/alex/.pgpass"
     if not set -q TMUX

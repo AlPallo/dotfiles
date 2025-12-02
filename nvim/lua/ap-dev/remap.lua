@@ -41,3 +41,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR><Esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "n", ":set hlsearch<CR>n", { noremap = true, silent = true })
 vim.keymap.set("n", "N", ":set hlsearch<CR>N", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>f", function()
+  vim.lsp.buf.format({ async = true })
+end, { noremap = true, silent = true })
