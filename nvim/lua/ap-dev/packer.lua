@@ -35,8 +35,6 @@ return require("packer").startup(function(use)
   use("mbbill/undotree")
   use("mason-org/mason.nvim")
   use("mason-org/mason-lspconfig.nvim")
-  use("neovim/nvim-lspconfig")
-
   use({
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -53,10 +51,6 @@ return require("packer").startup(function(use)
   })
   use("nvim-tree/nvim-web-devicons")
   use("MunifTanjim/nui.nvim")
-  use({
-    "folke/noice.nvim",
-    requires = { "MunifTanjim/nui.nvim" },
-  })
   use("tpope/vim-fugitive")
   use({
     "alexghergh/nvim-tmux-navigation",
