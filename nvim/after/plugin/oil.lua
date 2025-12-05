@@ -201,59 +201,24 @@ require("oil").setup({
 	},
 })
 
--- Oil clipboard can hold multiple lines
-local oil_register = {}
+local oil_clipboard_group = vim.api.nvim_create_augroup("OilClipboard", { clear = true })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "oil",
-	callback = function(event)
-		local buf = event.buf
+-- 1. Disable clipboard when entering Oil (isolates Oil actions)
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = oil_clipboard_group,
+  callback = function()
+    if vim.bo.filetype == "oil" then
+      vim.opt.clipboard = ""
+    end
+  end,
+})
 
-		-- Yank lines into Oil clipboard (supports count)
-		vim.keymap.set("n", "yy", function()
-			local count = vim.v.count
-			if count == 0 then
-				count = 1
-			end
-			local start_line = vim.fn.line(".") - 1
-			local end_line = start_line + count
-			oil_register = vim.api.nvim_buf_get_lines(buf, start_line, end_line, false)
-			vim.notify("Copied " .. #oil_register .. " lines to Oil clipboard")
-		end, { buffer = buf, noremap = true, silent = true })
-
-		-- Delete lines into Oil clipboard (supports count)
-		vim.keymap.set("n", "dd", function()
-			local count = vim.v.count
-			if count == 0 then
-				count = 1
-			end
-			local start_line = vim.fn.line(".") - 1
-			local end_line = start_line + count
-			oil_register = vim.api.nvim_buf_get_lines(buf, start_line, end_line, false)
-			vim.api.nvim_buf_set_lines(buf, start_line, end_line, false, {})
-			vim.notify("Deleted " .. #oil_register .. " lines into Oil clipboard")
-		end, { buffer = buf, noremap = true, silent = true })
-
-		-- Paste lines from Oil clipboard below cursor
-		vim.keymap.set("n", "p", function()
-			if not oil_register or #oil_register == 0 then
-				vim.notify("Oil clipboard empty", vim.log.levels.WARN)
-				return
-			end
-			local line_num = vim.fn.line(".")
-			vim.api.nvim_buf_set_lines(buf, line_num, line_num, false, oil_register)
-			vim.notify("Pasted " .. #oil_register .. " lines from Oil clipboard")
-		end, { buffer = buf, noremap = true, silent = true })
-
-		vim.keymap.set("n", "cd", function()
-			local oil = require("oil")
-			local dir = oil.get_current_dir()
-			if dir then
-				vim.cmd.cd(dir)
-				vim.notify("Changed directory to " .. dir, vim.log.levels.INFO)
-			else
-				vim.notify("Not in a directory", vim.log.levels.WARN)
-			end
-		end, { buffer = buf, noremap = true, silent = true })
-	end,
+-- 2. Restore clipboard when leaving Oil (restores OSC52 for your code)
+vim.api.nvim_create_autocmd("BufLeave", {
+  group = oil_clipboard_group,
+  callback = function()
+    if vim.bo.filetype == "oil" then
+      vim.opt.clipboard = "unnamedplus"
+    end
+  end,
 })
