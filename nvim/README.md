@@ -14,6 +14,11 @@ cargo build --release
 install ripgrep for fuzzy finder
 install unzip for (Mason dependency)
 
+install nvim-lspconfig
+`
+git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+`
+
 new stuff
 
 Following

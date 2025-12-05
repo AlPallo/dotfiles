@@ -9,4 +9,5 @@ data
 doctl/*
 packer_compiled.lua
 tmux/plugins/*
+nvim/pack/*
 
